@@ -1,0 +1,771 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<meta name="description" content="Rovic is a UI/UX designer and web developer focused on thoughtful, responsive digital experiences.">
+<meta name="theme-color" content="#f3f2ed">
+<title>Rovic — UI/UX Designer &amp; Web Developer Portfolio</title>
+<link href="./styles.css" rel="stylesheet">
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<!-- Google Fonts: Editorial Serif + Clean Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style data-purpose="custom-typography-and-effects">
+    /* Subtle editorial headline styling */
+    .font-serif-italic {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+    }
+    
+    /* Sticker glow effect matching reference portrait card */
+    .portrait-sticker-filter {
+      filter: drop-shadow(0 0 2px #ffffff) 
+              drop-shadow(0 0 6px rgba(255, 255, 255, 0.85))
+              drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5));
+    }
+
+    /* 3D card tilt perspective wrapper */
+    .perspective-container {
+      perspective: 1200px;
+    }
+
+    /* Custom smooth scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f3f2ed;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c7c5bc;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9d9b91;
+    }
+
+    html {
+      scroll-padding-top: 5rem;
+    }
+
+    #home {
+      min-height: 100vh;
+      min-height: 100svh;
+    }
+
+    #fullscreen-menu .menu-nav-link[aria-current="location"] {
+      color: #fff;
+    }
+
+    #fullscreen-menu .menu-nav-link[aria-current="location"] span:last-child {
+      text-decoration: underline;
+      text-decoration-color: #a3a3a8;
+      text-underline-offset: .2em;
+    }
+
+    [data-purpose="site-navigation-header"] {
+      padding-top: max(1.5rem, env(safe-area-inset-top));
+      padding-right: max(1.5rem, env(safe-area-inset-right));
+      padding-left: max(1.5rem, env(safe-area-inset-left));
+    }
+
+    body {
+      min-width: 320px;
+    }
+
+    :focus-visible {
+      outline: 3px solid #464652;
+      outline-offset: 4px;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #interactive-hero-card {
+      animation: portrait-enter 700ms cubic-bezier(.2,.75,.25,1) both;
+    }
+
+    @keyframes portrait-enter {
+      from { opacity: 0; transform: translateY(18px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 639px) {
+      #fullscreen-menu {
+        padding-top: max(1.5rem, env(safe-area-inset-top));
+        padding-right: max(1.25rem, env(safe-area-inset-right));
+        padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+        padding-left: max(1.25rem, env(safe-area-inset-left));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-cream text-charcoal-900 font-sans antialiased selection:bg-charcoal-900 selection:text-cream-100 overflow-x-hidden min-h-screen flex flex-col justify-between">
+<a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-charcoal-900" href="#home">Skip to content</a>
+<!-- BEGIN: FloatingNavigationBar -->
+<header class="fixed top-0 left-0 w-full z-50 px-6 py-6 lg:px-12 flex items-center justify-between pointer-events-none" data-purpose="site-navigation-header">
+<!-- Left badge & brand identity -->
+<div class="flex items-center gap-2 pointer-events-auto">
+<div class="flex items-center bg-white/90 backdrop-blur-md border border-neutral-300/80 rounded-full px-3.5 py-1.5 shadow-sm transition hover:border-charcoal-800">
+<span class="w-6 h-6 rounded-full bg-charcoal-900 text-cream flex items-center justify-center font-mono font-bold text-xs mr-2.5">I</span>
+<span class="font-mono text-xs tracking-wider uppercase text-charcoal-900 font-semibold">Rovic&nbsp;<span class="text-neutral-400 mx-1">/</span> PORTFOLIO</span>
+</div>
+</div>
+<!-- Right Menu Toggle Pill -->
+<div class="pointer-events-auto">
+<button aria-controls="fullscreen-menu" aria-expanded="false" aria-label="Open navigation menu" class="group flex items-center gap-2 bg-white/90 hover:bg-charcoal-900 hover:text-white backdrop-blur-md border border-neutral-300/90 text-charcoal-900 font-mono text-xs uppercase tracking-wider font-semibold px-4 py-2 rounded-full shadow-sm transition-all duration-300 hover:scale-105" data-purpose="menu-toggle-button" id="menu-toggle-btn" type="button">
+<span class="">MENU</span>
+<i class="fa-solid fa-plus text-xs transition-transform duration-300 group-hover:rotate-45" id="menu-icon"></i>
+</button>
+</div>
+</header>
+<!-- END: FloatingNavigationBar -->
+<!-- BEGIN: FullscreenSlideMenuDrawer -->
+<aside aria-hidden="true" class="fixed inset-0 overflow-y-auto bg-charcoal-900/95 backdrop-blur-xl z-40 transform -translate-y-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-6 sm:p-8 md:p-16 text-cream" data-purpose="navigation-drawer" id="fullscreen-menu" inert>
+<div class="flex justify-between items-center">
+<div class="font-mono text-xs text-neutral-400 uppercase tracking-widest">NAVIGATIONAL DIRECTORY</div>
+<button aria-label="Close navigation menu" class="p-2 text-neutral-400 hover:text-white transition" id="close-menu-btn" type="button">
+<i class="fa-solid fa-xmark text-2xl"></i>
+</button>
+</div>
+<!-- Navigation links -->
+<nav class="my-auto py-12 flex flex-col space-y-6 md:space-y-8 max-w-3xl">
+<a class="menu-nav-link text-4xl sm:text-6xl md:text-7xl font-light hover:italic hover:pl-4 transition-all duration-300 text-neutral-300 hover:text-white flex items-center gap-6" href="#home">
+<span class="font-mono text-sm text-neutral-500">01</span>
+<span class="">Home</span>
+</a>
+<a class="menu-nav-link text-4xl sm:text-6xl md:text-7xl font-light hover:italic hover:pl-4 transition-all duration-300 text-neutral-300 hover:text-white flex items-center gap-6" href="#about">
+<span class="font-mono text-sm text-neutral-500">02</span>
+<span class="">About</span>
+</a>
+<a class="menu-nav-link text-4xl sm:text-6xl md:text-7xl font-light hover:italic hover:pl-4 transition-all duration-300 text-neutral-300 hover:text-white flex items-center gap-6" href="#skills">
+<span class="font-mono text-sm text-neutral-500">03</span>
+<span class="">Skills</span>
+</a>
+<a class="menu-nav-link text-4xl sm:text-6xl md:text-7xl font-light hover:italic hover:pl-4 transition-all duration-300 text-neutral-300 hover:text-white flex items-center gap-6" href="#projects">
+<span class="font-mono text-sm text-neutral-500">04</span>
+<span class="">Projects</span>
+</a>
+<a class="menu-nav-link text-4xl sm:text-6xl md:text-7xl font-light hover:italic hover:pl-4 transition-all duration-300 text-neutral-300 hover:text-white flex items-center gap-6" href="#contacts">
+<span class="font-mono text-sm text-neutral-500">05</span>
+<span class="">Contacts</span>
+</a>
+</nav>
+<!-- Bottom menu footer info -->
+<div class="pt-8 border-t border-neutral-800 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs font-mono text-neutral-400 gap-4">
+<div class="">Available for worldwide freelance &amp; full-time opportunities</div>
+<div class="flex gap-6">
+<a aria-label="GitHub profile" class="hover:text-white transition inline-flex items-center gap-2" href="https://github.com/ambrad24" rel="noreferrer" target="_blank">
+<i aria-hidden="true" class="fa-brands fa-github text-base"></i> GITHUB
+</a>
+<a class="hover:text-white transition" href="mailto:carpentiro18@gmail.com">EMAIL</a>
+</div>
+</div>
+</aside>
+<!-- END: FullscreenSlideMenuDrawer -->
+<!-- BEGIN: MainContentContainer -->
+<main class="w-full relative">
+<!-- BEGIN: HeroSection (Exact Visual match of https://lh3.googleusercontent.com/aida-public/AB6AXuC4boEJkzb2R8WorZqVVd_-hOmI0rpGtG9BcZNRmpVP51264taeZ9soImi9BhLirrqa0Gcd39Tjzq2YkBPw0N4sED-3M6rzAGzWNz8jbsbJCa1AgOv9RzQ3PxwLDB5U0al_nRy7npJojKpOhKbWHhcjllnj2lR2jljpY06F5VlJwC2bKcaUWlckzwSDORsMXXSNwymDtBq5MN0kMg4E6AFHhspKsVMfEPRsNIBcP_TkYt4XP1kh491YUQ) -->
+<section class="min-h-screen min-h-[100svh] relative px-6 md:px-12 lg:px-20 pt-28 pb-16 flex flex-col justify-between" data-purpose="hero-section" id="home">
+<!-- Top Social Icons Strip matching reference layout -->
+<div class="flex items-center gap-5 text-neutral-600 mb-6 lg:mb-2">
+<a aria-label="GitHub profile" class="hover:text-charcoal-900 transition-colors p-2" href="https://github.com/ambrad24" rel="noreferrer" target="_blank" title="GitHub profile">
+<i aria-hidden="true" class="fa-brands fa-github text-lg"></i>
+</a>
+<a aria-label="Email Rovic" class="hover:text-charcoal-900 transition-colors p-2" href="mailto:carpentiro18@gmail.com" title="Email Rovic">
+<i class="fa-regular fa-envelope text-lg"></i>
+</a>
+</div>
+<!-- Hero Two-Column Grid: Typography Left & 3D Interactive Card Right -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center my-auto">
+<!-- Left Editorial Typography Column -->
+<div class="lg:col-span-7 flex flex-col items-start pr-0 lg:pr-8">
+<!-- Location Subtitle -->
+<div class="font-mono text-xs uppercase tracking-[0.25em] text-neutral-500 font-semibold mb-4 flex items-center gap-2">
+<span class="">philippines&nbsp;</span>
+<span class="w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
+<span class="">alaska c.c</span>
+</div>
+<!-- Main Distinctive Typography Title -->
+<h1 class="text-[clamp(3rem,11vw,6rem)] sm:text-7xl md:text-8xl xl:text-9xl tracking-tight text-charcoal-900 font-normal leading-none mb-3">
+            Hi, I’m Rovic<span class="font-serif-italic font-normal tracking-tight text-charcoal-800">.</span>
+</h1>
+<!-- Role Subtitle with blinking terminal cursor -->
+<div class="flex items-center text-xl sm:text-3xl md:text-4xl text-neutral-700 font-light mb-8">
+<h2 class="">UI/UX Designer</h2>
+<span class="inline-block w-3.5 h-7 bg-charcoal-900 ml-2 animate-pulse"></span>
+</div>
+<!-- Interactive Action Buttons -->
+<div class="flex flex-wrap items-center gap-4">
+<button class="bg-charcoal-900 hover:bg-black text-white text-xs font-mono uppercase tracking-widest px-7 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0" data-purpose="resume-button" id="open-resume-btn">
+              RESUME
+            </button>
+<a class="text-xs font-mono uppercase tracking-widest text-neutral-600 hover:text-charcoal-900 px-5 py-3 border border-neutral-300 hover:border-charcoal-800 rounded-full transition-all duration-300" href="#projects">
+              EXPLORE WORKS ↓
+            </a>
+</div>
+</div>
+<!-- Right 3D Interactive Photo Card Column (Reference Exact Replica) -->
+<div class="lg:col-span-5 flex justify-center lg:justify-end perspective-container">
+<div class="relative w-full max-w-[380px] sm:max-w-[420px] h-[min(120vw,480px)] min-h-[360px] sm:h-[530px] bg-charcoal-800 rounded-[2.5rem] shadow-2xl p-6 flex flex-col justify-between overflow-hidden border border-neutral-700/60 transition-transform duration-200 ease-out group" data-purpose="hero-portrait-card" id="interactive-hero-card">
+<!-- Background Watermark Code Brackets `< / >` from reference -->
+<div class="absolute inset-0 flex items-center justify-between px-6 pointer-events-none select-none opacity-20 text-neutral-400 font-mono text-7xl font-bold">
+<span class="">&lt;/&gt;</span>
+<span class="">&lt;/&gt;</span>
+</div>
+<!-- Stylized Portrait Image with Glowing White Sticker Border -->
+<div class="relative w-full h-full flex items-end justify-center z-10 pointer-events-none select-none">
+<img alt="Portrait of Rovic" class="w-full h-full object-cover object-center portrait-sticker-filter rounded-[2rem] transform transition-transform duration-500 group-hover:scale-105" decoding="async" fetchpriority="high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt5B26rVonsss8YhDt14AoXnPeQYhckhx-oiuVqwn2xxZAcU2kVU22wh8WrC5Rniwe_1XJEX7FwS1XyJF7tnAr2mNE54g5FAbtyB-HvF6Esamq5wFNL5_LeisXwWRzu5_T7VOGDCbRs3RSby-Ah1dFkfzow29AJmFNWy__XKa_htuYbyifh1kouxuRuvIjSrNbK_CSojVg-8RDk4K0B64tRrvYN9CaHW7OgIhspAN_Z9QHJ4RLm08hS9syQLn-cPi4ZKI">
+</div>
+<!-- Bottom Floating User Card Tag Status -->
+<div class="absolute bottom-5 left-5 right-5 z-20 bg-charcoal-900/85 backdrop-blur-md rounded-2xl p-3.5 border border-white/10 flex items-center justify-between shadow-lg">
+<div>
+<p class="text-white text-sm font-semibold tracking-tight">@Vic</p>
+<p class="text-neutral-400 text-xs">Available for work!</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+</span>
+</div>
+</div>
+<!-- Subtle corner light reflection -->
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+</div>
+</div>
+</div>
+<!-- Bottom Mouse Scroll Down Indicator -->
+<div class="w-full flex flex-col items-center justify-center pt-8 pb-2 pointer-events-none">
+<a class="pointer-events-auto flex flex-col items-center text-neutral-400 hover:text-charcoal-900 transition-colors" href="#about">
+<div class="w-5 h-8 border-2 border-neutral-400 rounded-full flex justify-center p-1 mb-2">
+<div class="w-1 h-2 bg-neutral-600 rounded-full animate-bounce"></div>
+</div>
+<span class="font-mono text-[10px] uppercase tracking-[0.2em] font-medium">SCROLL DOWN</span>
+<i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i>
+</a>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: AboutSection -->
+<section class="py-24 px-6 md:px-12 lg:px-20 border-t border-neutral-300/60 bg-cream-50" data-purpose="about-section" id="about">
+<div class="max-w-7xl mx-auto">
+<!-- Section tag header -->
+<div class="flex items-center gap-3 mb-10">
+<span class="font-mono text-xs uppercase tracking-widest text-neutral-500 font-semibold">01 / ABOUT ME</span>
+<div class="h-px bg-neutral-300 flex-1"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+<!-- Left Column: Bio Narrative -->
+<div class="lg:col-span-7 space-y-6">
+<h2 class="text-4xl sm:text-5xl font-light text-charcoal-900 leading-tight">Designing Digital <span class="font-serif-italic">Experiences</span> with purpose</h2>
+<p class="text-neutral-600 text-lg font-light leading-relaxed">I am an aspiring UI/UX Designer and Web Developer passionate about creating visually appealing, responsive, and user-friendly websites. I enjoy exploring creative designs, intuitive layouts, and color combinations to build engaging digital experiences that balance aesthetics, functionality, and usability.</p>
+
+<!-- Metrics Counter Cards -->
+<div class="grid grid-cols-3 gap-6 pt-6 border-t border-neutral-200">
+<div>
+<p class="font-mono text-3xl sm:text-4xl font-bold text-charcoal-900">03+</p>
+<p class="text-xs uppercase tracking-wider text-neutral-500 mt-1">Years Exp.</p>
+</div>
+<div>
+<p class="font-mono text-3xl sm:text-4xl font-bold text-charcoal-900">2+</p>
+<p class="text-xs uppercase tracking-wider text-neutral-500 mt-1">Projects Done</p>
+</div>
+<div>
+<p class="font-mono text-3xl sm:text-4xl font-bold text-charcoal-900">100%</p>
+<p class="text-xs uppercase tracking-wider text-neutral-500 mt-1">dedication</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Career Milestones and Principles -->
+<div class="lg:col-span-5 bg-white rounded-3xl p-8 border border-neutral-200 shadow-sm flex flex-col justify-between">
+<h3 class="font-mono text-xs uppercase tracking-widest text-neutral-400 font-bold mb-6">Core Philosophy</h3>
+<div class="space-y-6">
+<div class="border-l-2 border-charcoal-900 pl-4">
+<h4 class="font-semibold text-charcoal-900">Data-Driven UX Strategy</h4>
+<p class="text-sm text-neutral-600 mt-1">&nbsp;Grounding design choices in user testing, telemetry, and business metrics to balance aesthetics with ROI.</p>
+</div>
+<div class="border-l-2 border-neutral-300 pl-4">
+<h4 class="font-semibold text-charcoal-900">Scalable Design Systems</h4>
+<p class="text-sm text-neutral-600 mt-1">Building component libraries, clear typography scales, and token systems for seamless developer handoff.</p>
+</div>
+<div class="border-l-2 border-neutral-300 pl-4">
+<h4 class="font-semibold text-charcoal-900">Accessibility First</h4>
+<p class="text-sm text-neutral-600 mt-1">Designing inclusive digital products with contrast, screen-reader support, and flexible layouts in mind.</p>
+</div>
+</div>
+<!-- Download CV Mini trigger -->
+<div class="pt-8 mt-6 border-t border-neutral-100 flex items-center justify-between">
+<span class="text-xs font-mono text-neutral-500">RESUME &amp; CREDENTIALS</span>
+<button class="text-xs font-semibold text-charcoal-900 hover:underline flex items-center gap-1" id="open-credentials-btn" type="button">
+                View Credentials <i class="fa-solid fa-arrow-right text-xs"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->
+<!-- BEGIN: SkillsSection -->
+<section class="py-24 px-6 md:px-12 lg:px-20 border-t border-neutral-300/60" data-purpose="skills-section" id="skills">
+<div class="max-w-7xl mx-auto">
+<!-- Section Header -->
+<div class="flex items-center gap-3 mb-10">
+<span class="font-mono text-xs uppercase tracking-widest text-neutral-500 font-semibold">02 / TECHNICAL ARSENAL</span>
+<div class="h-px bg-neutral-300 flex-1"></div>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<h2 class="text-4xl sm:text-5xl font-light text-charcoal-900 leading-tight">
+              Tools &amp; <span class="font-serif-italic font-normal">Technologies</span>
+</h2>
+<p class="text-neutral-600 mt-2 max-w-xl">A growing toolkit for building thoughtful interfaces and responsive web experiences.</p>
+</div>
+<!-- Interactive Category Pill Filter -->
+<div class="flex flex-wrap gap-2" id="skill-filter-buttons">
+<button aria-pressed="true" class="skill-filter-btn px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition text-charcoal-900 bg-charcoal-900 text-white" data-filter="all" type="button">All</button>
+<button aria-pressed="false" class="skill-filter-btn px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider text-charcoal-900 hover:bg-neutral-300 transition bg-neutral-200/80" data-filter="frontend" type="button">Frontend</button>
+<button aria-pressed="false" class="skill-filter-btn px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider text-charcoal-900 hover:bg-neutral-300 transition bg-neutral-200/80" data-filter="design" type="button">Design</button>
+
+
+</div>
+</div>
+<!-- Skills Grid Container -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="skills-grid">
+<!-- React -->
+<div class="skill-card bg-white p-5 rounded-2xl border border-neutral-200 hover:border-charcoal-800 transition-all duration-300 hover:shadow-md group" data-category="frontend">
+<div class="flex items-center justify-between mb-3">
+<i class="fa-brands fa-react text-2xl text-cyan-500 group-hover:scale-110 transition-transform"></i>
+<span class="font-mono text-xs text-neutral-400">FRONTEND</span>
+</div>
+<h4 class="font-semibold text-charcoal-900">React.js &amp; Next.js</h4>
+<p class="text-xs text-neutral-500 mt-1">SSR, ISR, Server Actions, App Router</p>
+</div>
+<!-- TypeScript -->
+<div class="skill-card bg-white p-5 rounded-2xl border border-neutral-200 hover:border-charcoal-800 transition-all duration-300 hover:shadow-md group" data-category="frontend">
+<div class="flex items-center justify-between mb-3">
+<i class="fa-solid fa-code text-2xl text-yellow-500 group-hover:scale-110 transition-transform"></i>
+<span class="font-mono text-xs text-neutral-400">FRONTEND</span>
+</div>
+<h4 class="font-semibold text-charcoal-900">TypeScript</h4>
+<p class="text-xs text-neutral-500 mt-1">Strict types, Generics, Interfaces</p>
+</div>
+<!-- Tailwind CSS -->
+<div class="skill-card bg-white p-5 rounded-2xl border border-neutral-200 hover:border-charcoal-800 transition-all duration-300 hover:shadow-md group" data-category="frontend">
+<div class="flex items-center justify-between mb-3">
+<i class="fa-brands fa-css3-alt text-2xl text-sky-500 group-hover:scale-110 transition-transform"></i>
+<span class="font-mono text-xs text-neutral-400">FRONTEND</span>
+</div>
+<h4 class="font-semibold text-charcoal-900">Tailwind CSS</h4>
+<p class="text-xs text-neutral-500 mt-1">Design Systems, Flexbox, Grids</p>
+</div>
+<div class="skill-card bg-white p-5 rounded-2xl border border-neutral-200 hover:border-charcoal-800 transition-all duration-300 hover:shadow-md group" data-category="design">
+<div class="flex items-center justify-between mb-3">
+<i class="fa-brands fa-figma text-2xl text-purple-500 group-hover:scale-110 transition-transform"></i>
+<span class="font-mono text-xs text-neutral-400">DESIGN</span>
+</div>
+<h4 class="font-semibold text-charcoal-900">Figma</h4>
+<p class="text-xs text-neutral-500 mt-1">Interface concepts and visual design</p>
+</div>
+
+</div>
+</div>
+</section>
+<!-- END: SkillsSection -->
+<!-- BEGIN: ProjectsSection -->
+<section class="py-24 px-6 md:px-12 lg:px-20 border-t border-neutral-300/60 bg-cream-50" data-purpose="projects-section" id="projects">
+<div class="max-w-7xl mx-auto">
+<!-- Section Header -->
+<div class="flex items-center gap-3 mb-10">
+<span class="font-mono text-xs uppercase tracking-widest text-neutral-500 font-semibold">03 / CURATED WORKS</span>
+<div class="h-px bg-neutral-300 flex-1"></div>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<div>
+<h2 class="text-4xl sm:text-5xl font-light text-charcoal-900 leading-tight">
+              Featured <span class="font-serif-italic font-normal">Creations</span>
+</h2>
+<p class="text-neutral-600 mt-2">A selection of user-centered interfaces, digital products, and interactive web experiences built with precision.</p>
+</div>
+<span class="font-mono text-xs text-neutral-500">PERSONAL DESIGN PROJECTS</span>
+</div>
+<!-- Featured Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+<!-- Project Card 1 -->
+<article class="bg-white rounded-3xl p-6 lg:p-8 border border-neutral-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+<div>
+<div class="w-full h-56 sm:h-64 rounded-2xl bg-gradient-to-tr from-sky-100 to-blue-200 relative overflow-hidden flex items-center justify-center p-3 mb-6">
+<img alt="Mobile screen design for the School Athlete Monitoring System" class="h-full max-w-full object-contain rounded-xl shadow-lg transition-transform duration-500 group-hover:scale-[1.03]" decoding="async" loading="lazy" src="./pp1.png">
+</div>
+<div class="flex justify-end mb-3">
+<span class="inline-flex max-w-full whitespace-normal break-words rounded-full bg-charcoal-900/75 px-3 py-1 text-right font-mono text-[10px] uppercase leading-tight text-white">Sams design</span>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<span class="font-mono text-xs text-neutral-400">2024</span>
+<span class="text-neutral-300">•</span>
+<span class="font-mono text-xs text-neutral-600 font-medium">Figma Creation</span>
+</div>
+<h3 class="text-2xl font-semibold text-charcoal-900 group-hover:text-neutral-600 transition-colors">School Athlete Monitoring System</h3>
+<p class="text-sm text-neutral-600 mt-2 leading-relaxed">A web-based system designed to help schools manage and monitor student-athletes’ profiles, attendance, sports participation, academic performance, and health records. It helps coaches and administrators organize athlete information, track progress, and support better decision-making in sports management.</p>
+</div>
+<div class="flex items-center justify-end pt-6 mt-6 border-t border-neutral-100">
+<a class="text-xs font-mono uppercase tracking-wider text-charcoal-900 font-bold hover:underline flex items-center gap-1.5" href="https://www.figma.com/proto/iIoDqWs40GCKII81JCNmH8/Untitled?node-id=327-173&amp;t=ZgQeFx87CW8Jbb09-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=259%3A162&amp;show-proto-sidebar=1" rel="noreferrer" target="_blank">
+                <i aria-hidden="true" class="fa-brands fa-figma text-sm"></i> View Figma prototype <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+</a>
+</div>
+</article>
+<!-- Project Card 2 -->
+<article class="bg-white rounded-3xl p-6 lg:p-8 border border-neutral-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+<div>
+<div class="w-full h-56 sm:h-64 rounded-2xl bg-white relative overflow-hidden flex items-center justify-center mb-6">
+<img alt="Cebu Eastern College Library QR code book borrowing system design" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" decoding="async" loading="lazy" src="./pp.png">
+</div>
+<div class="flex justify-end mb-3">
+<span class="inline-flex max-w-full whitespace-normal break-words rounded-full bg-charcoal-900/75 px-3 py-1 text-right font-mono text-[10px] uppercase leading-tight text-white">CEC Library System</span>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<span class="font-mono text-xs text-neutral-400">2023</span>
+<span class="text-neutral-300">•</span>
+<span class="font-mono text-xs text-neutral-600 font-medium">Figma Creation</span>
+</div>
+<h3 class="text-2xl font-semibold text-charcoal-900 group-hover:text-neutral-600 transition-colors">CEC Library System</h3>
+<p class="text-sm text-neutral-600 mt-2 leading-relaxed">A web-based system designed to simplify library operations by managing book inventories, student records, borrowing and returning transactions, and book availability. It helps librarians organize resources efficiently, track borrowed books, and provide users with a smoother and more convenient library experience.&nbsp;</p>
+</div>
+<div class="flex items-center justify-end pt-6 mt-6 border-t border-neutral-100">
+<a class="text-xs font-mono uppercase tracking-wider text-charcoal-900 font-bold hover:underline flex items-center gap-1.5" href="https://www.figma.com/proto/FAp3Pnuh6ADzwvhXw3Qru4/Untitled?node-id=30-36&amp;t=K4phew8KYyTFwJ21-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=64%3A626&amp;show-proto-sidebar=1" rel="noreferrer" target="_blank">
+                <i aria-hidden="true" class="fa-brands fa-figma text-sm"></i> View Figma prototype <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- END: ProjectsSection -->
+<!-- BEGIN: ContactsSection -->
+<section class="py-24 px-6 md:px-12 lg:px-20 border-t border-neutral-300/60" data-purpose="contacts-section" id="contacts">
+<div class="max-w-7xl mx-auto">
+<!-- Section Header -->
+<div class="flex items-center gap-3 mb-10">
+<span class="font-mono text-xs uppercase tracking-widest text-neutral-500 font-semibold">04 / INQUIRIES &amp; CONTACT</span>
+<div class="h-px bg-neutral-300 flex-1"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+<!-- Contact Details Left -->
+<div class="lg:col-span-5 space-y-6">
+<h2 class="text-4xl sm:text-5xl font-light text-charcoal-900 leading-tight">
+              Let’s start a <span class="font-serif-italic font-normal">conversation.</span>
+</h2>
+<p class="text-neutral-600 text-base leading-relaxed">
+              Have an ambitious project in mind, an exciting role to discuss, or just looking to say hello? My inbox is always open.
+            </p>
+<div class="pt-6 space-y-4">
+<!-- Direct Email Box -->
+<div class="p-4 rounded-2xl bg-white border border-neutral-200 flex items-center justify-between">
+<div>
+<p class="text-xs font-mono text-neutral-400 uppercase">DIRECT EMAIL</p>
+<a class="font-medium text-charcoal-900 hover:underline" href="mailto:carpentiro18@gmail.com" id="email-address">carpentiro18@gmail.com</a>
+</div>
+<button aria-describedby="copy-feedback" class="text-xs font-mono uppercase bg-neutral-100 hover:bg-neutral-200 text-charcoal-900 px-3 py-1.5 rounded-lg transition" id="copy-email-btn" title="Copy email address to clipboard" type="button">
+<span id="copy-text" class="">COPY</span>
+</button>
+</div>
+<p aria-live="polite" class="sr-only" id="copy-feedback"></p>
+<!-- Location Tag -->
+<div class="p-4 rounded-2xl bg-white border border-neutral-200">
+<p class="text-xs font-mono text-neutral-400 uppercase">LOCATION</p>
+<p class="font-medium text-charcoal-900">Alaska C.C</p>
+</div>
+</div>
+<!-- Direct email link -->
+<div class="pt-4 flex items-center gap-3">
+<a aria-label="GitHub profile" class="w-10 h-10 rounded-full bg-white border border-neutral-300 flex items-center justify-center hover:bg-charcoal-900 hover:text-white transition-all shadow-sm" href="https://github.com/ambrad24" rel="noreferrer" target="_blank" title="GitHub profile">
+<i aria-hidden="true" class="fa-brands fa-github text-sm"></i>
+</a>
+<a aria-label="Email Rovic" class="w-10 h-10 rounded-full bg-white border border-neutral-300 flex items-center justify-center hover:bg-charcoal-900 hover:text-white transition-all shadow-sm" href="mailto:carpentiro18@gmail.com">
+<i aria-hidden="true" class="fa-regular fa-envelope text-sm"></i>
+</a>
+</div>
+</div>
+<!-- Email Contact Form -->
+<div class="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-neutral-200 shadow-sm" data-purpose="contact-form-card">
+<form action="mailto:carpentiro18@gmail.com" class="space-y-6" enctype="text/plain" id="contact-form" method="post">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<label class="block font-mono text-xs uppercase tracking-wider text-neutral-500 mb-2" for="sender-name">Your Name *</label>
+<input autocomplete="name" class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-charcoal-900 focus:ring-0 text-sm placeholder:text-neutral-300 bg-neutral-50/50" id="sender-name" name="name" placeholder="e.g. Jane Doe" required type="text">
+</div>
+<div>
+<label class="block font-mono text-xs uppercase tracking-wider text-neutral-500 mb-2" for="sender-email">Your Email *</label>
+<input autocomplete="email" class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-charcoal-900 focus:ring-0 text-sm placeholder:text-neutral-300 bg-neutral-50/50" id="sender-email" name="email" placeholder="jane@example.com" required type="email">
+</div>
+</div>
+<div>
+<label class="block font-mono text-xs uppercase tracking-wider text-neutral-500 mb-2" for="sender-subject">Subject</label>
+<input class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-charcoal-900 focus:ring-0 text-sm placeholder:text-neutral-300 bg-neutral-50/50" id="sender-subject" name="subject" placeholder="Project Inquiry / Job Opportunity" type="text">
+</div>
+<div>
+<label class="block font-mono text-xs uppercase tracking-wider text-neutral-500 mb-2" for="sender-message">Message *</label>
+<textarea class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-charcoal-900 focus:ring-0 text-sm placeholder:text-neutral-300 bg-neutral-50/50" id="sender-message" name="message" placeholder="Tell me about your timeline, scope, or requirements..." required rows="4"></textarea>
+</div>
+<button class="w-full sm:w-auto px-8 py-3.5 bg-charcoal-900 hover:bg-black text-white font-mono text-xs uppercase tracking-widest rounded-full transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2" type="submit">
+<span class="">Send Message</span>
+<i class="fa-solid fa-arrow-right text-xs"></i>
+</button>
+<div aria-live="polite" class="hidden p-4 rounded-xl text-xs font-mono" id="form-feedback" role="status"></div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ContactsSection -->
+</main>
+<!-- END: MainContentContainer -->
+<!-- BEGIN: MinimalFooter -->
+<footer class="w-full py-8 px-6 md:px-12 border-t border-neutral-300/80 bg-cream flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-neutral-500 gap-4" data-purpose="site-footer">
+<div class="">© <span id="current-year" class="">2026</span> Rovic Carpentiro— ALL RIGHTS RESERVED.</div>
+<div class="flex items-center gap-4">
+<span class="">DESIGNED &amp; Student of CEC College</span>
+<a class="hover:text-charcoal-900 underline" href="#home">TOP ↑</a>
+</div>
+</footer>
+<!-- END: MinimalFooter -->
+<!-- BEGIN: ResumeModalPreview -->
+<div aria-hidden="true" aria-labelledby="resume-title" aria-modal="true" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 sm:p-6" data-purpose="resume-viewer-dialog" id="resume-modal" role="dialog">
+<div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+<button aria-label="Close resume preview" class="absolute top-5 right-5 text-neutral-400 hover:text-charcoal-900 p-2" id="close-resume-btn" type="button">
+<i class="fa-solid fa-xmark text-xl"></i>
+</button>
+<div class="flex items-center gap-3 mb-4">
+<span class="w-8 h-8 rounded-full bg-charcoal-900 text-cream flex items-center justify-center font-mono font-bold text-xs">R</span>
+<div>
+<h3 class="text-xl font-bold text-charcoal-900" id="resume-title">Rovic — Profile Snapshot</h3>
+<p class="text-xs text-neutral-500 font-mono">UI/UX Designer &amp; Web Developer</p>
+</div>
+</div>
+<hr class="my-4 border-neutral-200">
+<div class="space-y-4 text-sm text-neutral-700">
+<div>
+<h4 class="font-bold text-charcoal-900 font-mono uppercase text-xs tracking-wider mb-1">Education</h4>
+<p class="font-medium">Student at CEC College</p>
+</div>
+<div>
+<h4 class="font-bold text-charcoal-900 font-mono uppercase text-xs tracking-wider mb-1">Focus</h4>
+<p class="text-xs text-neutral-600">Creating responsive, visually engaging websites and intuitive user experiences.</p>
+</div>
+<div>
+<h4 class="font-bold text-charcoal-900 font-mono uppercase text-xs tracking-wider mb-1">Tools &amp; technologies</h4>
+<p class="text-xs text-neutral-600">Figma, React, Next.js, TypeScript, and Tailwind CSS</p>
+</div>
+</div>
+<div class="mt-8 flex justify-end gap-3 pt-4 border-t border-neutral-100">
+<button class="px-5 py-2.5 rounded-full border border-neutral-300 text-xs font-mono uppercase text-neutral-700 hover:bg-neutral-100 transition" id="dismiss-resume-btn" type="button">Close</button>
+</div>
+</div>
+</div>
+<!-- END: ResumeModalPreview -->
+<!-- BEGIN: InteractiveScripts -->
+<script data-purpose="portfolio-interactions">
+    const currentYear = document.getElementById('current-year');
+    if (currentYear) currentYear.textContent = new Date().getFullYear();
+
+    const card = document.getElementById('interactive-hero-card');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    if (card && finePointer.matches && !reducedMotion.matches) {
+      card.addEventListener('pointermove', (event) => {
+        const bounds = card.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        card.style.transform = `perspective(1000px) rotateX(${y * -10}deg) rotateY(${x * 10}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+      });
+    }
+
+    const menuBtn = document.getElementById('menu-toggle-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const menuDrawer = document.getElementById('fullscreen-menu');
+    const menuLinks = [...document.querySelectorAll('.menu-nav-link')];
+    let menuOpen = false;
+    let previousFocus = null;
+
+    function updateScrollLock() {
+      const modalOpen = resumeModal && !resumeModal.classList.contains('hidden');
+      document.body.classList.toggle('overflow-hidden', menuOpen || modalOpen);
+    }
+
+    function setMenuOpen(open) {
+      if (!menuBtn || !menuDrawer || open === menuOpen) return;
+      menuOpen = open;
+      menuDrawer.classList.toggle('-translate-y-full', !open);
+      menuDrawer.setAttribute('aria-hidden', String(!open));
+      menuDrawer.inert = !open;
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      document.getElementById('menu-icon')?.classList.toggle('rotate-45', open);
+      updateScrollLock();
+
+      if (open) {
+        previousFocus = document.activeElement;
+        menuLinks[0]?.focus();
+      } else if (previousFocus instanceof HTMLElement) {
+        previousFocus.focus();
+      }
+    }
+
+    menuBtn?.addEventListener('click', () => setMenuOpen(!menuOpen));
+    closeMenuBtn?.addEventListener('click', () => setMenuOpen(false));
+    menuLinks.forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+
+    const filterButtons = [...document.querySelectorAll('.skill-filter-btn')];
+    const skillCards = [...document.querySelectorAll('.skill-card')];
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        filterButtons.forEach((item) => {
+          const selected = item === button;
+          item.setAttribute('aria-pressed', String(selected));
+          item.classList.toggle('bg-charcoal-900', selected);
+          item.classList.toggle('text-white', selected);
+          item.classList.toggle('bg-neutral-200/80', !selected);
+        });
+        skillCards.forEach((skill) => {
+          skill.hidden = filter !== 'all' && skill.dataset.category !== filter;
+        });
+      });
+    });
+
+    const openResumeBtn = document.getElementById('open-resume-btn');
+    const openCredentialsBtn = document.getElementById('open-credentials-btn');
+    const closeResumeBtn = document.getElementById('close-resume-btn');
+    const dismissResumeBtn = document.getElementById('dismiss-resume-btn');
+    const resumeModal = document.getElementById('resume-modal');
+    let resumeTrigger = null;
+
+    function setResumeOpen(open) {
+      if (!resumeModal) return;
+      resumeModal.classList.toggle('hidden', !open);
+      resumeModal.classList.toggle('flex', open);
+      resumeModal.setAttribute('aria-hidden', String(!open));
+      resumeModal.inert = !open;
+      updateScrollLock();
+      if (open) {
+        resumeTrigger = document.activeElement;
+        closeResumeBtn?.focus();
+      } else if (resumeTrigger instanceof HTMLElement) {
+        resumeTrigger.focus();
+      }
+    }
+
+    openResumeBtn?.addEventListener('click', () => setResumeOpen(true));
+    openCredentialsBtn?.addEventListener('click', () => setResumeOpen(true));
+    closeResumeBtn?.addEventListener('click', () => setResumeOpen(false));
+    dismissResumeBtn?.addEventListener('click', () => setResumeOpen(false));
+    resumeModal?.addEventListener('click', (event) => {
+      if (event.target === resumeModal) setResumeOpen(false);
+    });
+
+    function keepFocusInside(container, event) {
+      const focusable = [...container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])')];
+      if (!focusable.length) return;
+      if (event.shiftKey && document.activeElement === focusable[0]) {
+        event.preventDefault();
+        focusable[focusable.length - 1].focus();
+      } else if (!event.shiftKey && document.activeElement === focusable[focusable.length - 1]) {
+        event.preventDefault();
+        focusable[0].focus();
+      }
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        if (resumeModal && !resumeModal.classList.contains('hidden')) setResumeOpen(false);
+        else if (menuOpen) setMenuOpen(false);
+      } else if (event.key === 'Tab') {
+        if (resumeModal && !resumeModal.classList.contains('hidden')) keepFocusInside(resumeModal, event);
+        else if (menuOpen && menuDrawer) keepFocusInside(menuDrawer, event);
+      }
+    });
+
+    const sectionObserver = 'IntersectionObserver' in window
+      ? new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            menuLinks.forEach((link) => {
+              if (link.hash === `#${entry.target.id}`) link.setAttribute('aria-current', 'location');
+              else link.removeAttribute('aria-current');
+            });
+          });
+        }, { rootMargin: '-35% 0px -55% 0px' })
+      : null;
+    document.querySelectorAll('main section[id]').forEach((section) => sectionObserver?.observe(section));
+
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyText = document.getElementById('copy-text');
+    const copyFeedback = document.getElementById('copy-feedback');
+    const emailToCopy = 'carpentiro18@gmail.com';
+
+    copyBtn?.addEventListener('click', async () => {
+      if (!navigator.clipboard?.writeText) {
+        if (copyFeedback) copyFeedback.textContent = 'Clipboard access is unavailable. Use the email link to open your mail app.';
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(emailToCopy);
+        if (copyText) copyText.textContent = 'COPIED!';
+        if (copyFeedback) copyFeedback.textContent = 'Email address copied.';
+        window.setTimeout(() => {
+          if (copyText) copyText.textContent = 'COPY';
+          if (copyFeedback) copyFeedback.textContent = '';
+        }, 2000);
+      } catch (error) {
+        if (copyFeedback) copyFeedback.textContent = 'Could not access the clipboard. Use the email link to open your mail app.';
+      }
+    });
+
+    const contactForm = document.getElementById('contact-form');
+    const formFeedback = document.getElementById('form-feedback');
+    contactForm?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!contactForm.reportValidity()) return;
+
+      const name = document.getElementById('sender-name').value.trim();
+      const senderEmail = document.getElementById('sender-email').value.trim();
+      const subject = document.getElementById('sender-subject').value.trim() || `Portfolio inquiry from ${name}`;
+      const message = document.getElementById('sender-message').value.trim();
+      const body = `From: ${name} (${senderEmail})\n\n${message}`;
+      const mailto = `mailto:carpentiro18@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      if (formFeedback) {
+        formFeedback.classList.remove('hidden');
+        formFeedback.classList.add('bg-neutral-100', 'text-charcoal-900');
+        formFeedback.textContent = 'Your email app should open with this message. Review it and press Send there; this site does not send messages directly.';
+      }
+      window.location.href = mailto;
+    });
+  </script>
+<!-- END: InteractiveScripts -->
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,17 @@
+{
+  "name": "rovic-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss --config tailwind.config.cjs --input src/input.css --output styles.css --minify"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  },
+  "overrides": {
+    "postcss-selector-parser": "7.1.6"
+  }
+}
